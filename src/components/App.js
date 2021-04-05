@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import LoadingBar from 'react-redux-loading-bar'
 import { handleInitialData } from '../actions/shared'
 
 class App extends React.Component {
@@ -13,7 +14,8 @@ class App extends React.Component {
   render() { 
     return (
       <div className="App">
-        APP Component
+        <LoadingBar></LoadingBar>
+        App Component
       </div>
     );
   }

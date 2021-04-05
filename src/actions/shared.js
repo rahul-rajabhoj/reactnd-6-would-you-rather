@@ -1,13 +1,18 @@
-import { _getQuestions as getQuestions, _getUsers as getUsers } from '../utils/_DATA'
+import { getInitialData } from '../utils/_DATA'
 import { receiveQuestions } from './questions'
 import { receiveUsers } from './users'
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 export function handleInitialData() {
     return async (dispatch) => {
-        const questions = await getQuestions()
-        const users = await getUsers()
-
-        dispatch(receiveQuestions(questions))
-        dispatch(receiveUsers(users))
+        dispatch(showLoading())
+        getInitialData().then(({users, questions}) => {
+            dispatch(receiveQuestions(questions))
+            dispatch(receiveUsers(users))
+            dispatch(hideLoading())
+        }).catch( error => {
+            console.error('Error in getInitialData', error)
+            dispatch(hideLoading())
+        })
     }
 }   
