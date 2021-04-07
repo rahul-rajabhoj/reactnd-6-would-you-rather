@@ -25,7 +25,7 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
-          <div className='container'>
+          <div>
             <Nav />
             <div>
               <PrivateRoute path='/' component={Home} />

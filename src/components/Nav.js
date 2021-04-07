@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { logout } from '../actions/authedUser'
 
 class Nav extends React.Component {
     handleLogoutEvent = () => {
-        // todo: add logic to logout user
+        const { dispatch } = this.props
+        dispatch(logout())
     }
 
     render() { 
