@@ -8,7 +8,7 @@ class LeaderBoard extends React.Component {
             <div>
                 {leaders.map((leader) => (
                     <div key={leader.id}>
-                        <img src={leader.avatarURL} alt={leader.name}/>
+                        <img className='user-avatar-lg' src={leader.avatarURL} alt={leader.name}/>
                         <p>Name: {leader.name}</p>
                         <p>Answered Question: {leader.answeredQuestion}</p>
                         <p>Created Question: {leader.createdQuestion}</p>

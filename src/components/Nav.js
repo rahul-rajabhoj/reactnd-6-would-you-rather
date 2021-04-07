@@ -31,7 +31,7 @@ class Nav extends React.Component {
                     </li>
                     { authedUser && user && (<Fragment>
                         <li>
-                            Hello {user.name} <img src='' alt='' />
+                            Hello {user.name} <img className='user-avatar-sm' src={user.avatarURL} alt={user.name} />
                         </li>
                         <li>
                             <button onClick={this.handleLogoutEvent}>
