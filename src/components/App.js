@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading-bar'
+import { Container } from 'semantic-ui-react';
 
 import { handleInitialData } from '../actions/shared'
 import PrivateRoute from './PrivateRoute'
@@ -27,13 +28,13 @@ class App extends Component {
           <LoadingBar />
           <div>
             <Nav />
-            <div>
+            <Container text>
               <PrivateRoute path='/' component={Home} />
               <Route path='/login' component={Login} />
               <PrivateRoute path='/add' component={NewPoll} />
               <PrivateRoute path='/leaderboard' component={LeaderBoard} />
               <PrivateRoute path='/questions/:question_id' component={PollDetail} />
-            </div>
+            </Container>
           </div>
         </Fragment>
       </Router>

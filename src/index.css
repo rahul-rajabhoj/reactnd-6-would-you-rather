@@ -31,3 +31,11 @@ code {
   font-weight: 600 !important;
 }
 /* Nav Component style ends here */
+
+
+/* LeaderBoard Component style starts here */
+.leader-segment img {
+  width: 150px;
+  height: 150px;
+}
+/* LeaderBoard Component style ends here */
