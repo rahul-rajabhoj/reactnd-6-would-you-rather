@@ -1,4 +1,3 @@
-import { showLoading, hideLoading } from 'react-redux-loading-bar'
 import { _saveQuestionAnswer as saveQuestionAnswer} from "../utils/_DATA"
 import { addAnswer } from './questions'
 
