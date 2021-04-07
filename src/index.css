@@ -17,7 +17,17 @@ code {
   height: 150px;
 }
 
-.user-avatar-sm {
-  width: 50px;
-  height: 50px;
+/* Nav Component style starts here */
+.app-navbar.ui.stackable.menu {
+  height: 60px;
 }
+
+.app-navbar .ui.avatar.image {
+  width: 3em;
+  height: 3em;
+}
+
+.app-navbar .active {
+  font-weight: 600 !important;
+}
+/* Nav Component style ends here */

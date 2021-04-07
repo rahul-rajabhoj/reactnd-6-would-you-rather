@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { Menu, Image, Button } from 'semantic-ui-react';
 import { logout } from '../actions/authedUser'
 
 class Nav extends React.Component {
@@ -12,35 +13,36 @@ class Nav extends React.Component {
     render() { 
         const { authedUser, user } = this.props
         return (
-            <nav>
-                <ul>
-                    <li>
-                        <NavLink to='/' exact>
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/add' exact>
-                            New Question
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/leaderboard' exact>
-                            Leader Board
-                        </NavLink>
-                    </li>
+            <Fragment>
+                <Menu className='app-navbar' stackable>
+                    <Menu.Item name='Home' as={NavLink} to='/' exact />
+                    <Menu.Item name='New Question' as={NavLink} to='/add' />
+                    <Menu.Item name='Leader Board' as={NavLink} to='/leaderboard' />
                     { authedUser && user && (<Fragment>
-                        <li>
-                            Hello {user.name} <img className='user-avatar-sm' src={user.avatarURL} alt={user.name} />
-                        </li>
-                        <li>
-                            <button onClick={this.handleLogoutEvent}>
-                                Logout
-                            </button>
-                        </li>
+                        <Menu.Menu position='right'>
+                            <Menu.Item>
+                                <span>
+                                    Hello, {user.name}
+                                    <Image
+                                        src={user.avatarURL}
+                                        avatar
+                                        spaced='left'
+                                        verticalAlign='middle'
+                                    />
+                                </span>
+                            </Menu.Item>
+                            <Menu.Item>
+                                <Button
+                                    content='Logout'
+                                    labelPosition='right'
+                                    icon='log out'
+                                    onClick={this.handleLogoutEvent}
+                                />
+                            </Menu.Item>
+                        </Menu.Menu>
                     </Fragment>)}
-                </ul>
-            </nav>
+                </Menu>
+            </Fragment>
         );
     }
 }
