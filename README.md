@@ -2,6 +2,23 @@
 
 This is the code for the final assessment project for Udacity's React & Redux course.
 
+## How to Load the App
+
+The project uses Node.js and the Create-React-App starter. If you do not have Node >= 10.x installed, you can download it here: [Node.js](https://nodejs.org/en/)
+
+Once Node is installed, navigate to the directory where you want to store the app
+
+```
+git clone https://github.com/rahul-rajabhoj/reactnd-myreads.git
+npm install
+```
+
+Once all of the dependencies have been installed you can launch the app with
+
+```
+npm start
+```
+
 ## Data
 
 There are two types of objects stored in our database:
