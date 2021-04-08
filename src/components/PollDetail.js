@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 class PollDetail extends React.Component {
     render() { 
+        const { question_id } = this.props
+        console.log(question_id)
         return (
             <div>
                 PollDetail Component
@@ -11,4 +13,15 @@ class PollDetail extends React.Component {
     }
 }
 
-export default connect()(PollDetail);
+function mapStateToProps({ questions, users, authedUser }, props) {
+    const {question_id} = props.match.params
+    const question = questions[question_id]
+    const user = users[authedUser]
+    return {
+        question,
+        user,
+        question_id,
+    }
+}
+
+export default connect(mapStateToProps)(PollDetail);

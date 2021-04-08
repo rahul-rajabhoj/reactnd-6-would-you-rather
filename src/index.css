@@ -13,8 +13,8 @@ code {
 }
 
 .user-avatar-lg {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
 /* Nav Component style starts here */
@@ -35,7 +35,30 @@ code {
 
 /* LeaderBoard Component style starts here */
 .leader-segment img {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 /* LeaderBoard Component style ends here */
+
+
+/* Home Component style starts here */
+.tab .ui.tabular.menu .item {
+  flex: 1 1 auto;
+  background: none #f6f6f6;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top-width: 1px;
+  border-color: #d4d4d5;
+}
+.tab .ui.tabular.menu .active.item {
+  background: none #fff;
+}
+/* Home Component style ends here */
+
+
+/* Poll Component style ends here */
+.poll-segment img {
+  width: 125px;
+  height: 125px;
+}
+/* Poll Component style ends here */
