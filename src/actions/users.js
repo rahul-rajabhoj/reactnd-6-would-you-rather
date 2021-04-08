@@ -29,11 +29,13 @@ function addAnswerToUser(authedUser, qid, answer) {
 }
 
 export function handleSaveQuestionAnswer(authedUser, qid, answer) {
-    return async (dispatch) => {
+    return async dispatch => {
         dispatch(addAnswerToUser(authedUser, qid, answer))
         dispatch(addAnswer(authedUser, qid, answer))
-        return saveQuestionAnswer({authedUser, qid, answer}).catch( error => {
+        try {
+            return saveQuestionAnswer({ authedUser, qid, answer })
+        } catch (error) {
             console.error('Error in handleSaveQuestionAnswer', error)
-        })
+        }
     }
 }

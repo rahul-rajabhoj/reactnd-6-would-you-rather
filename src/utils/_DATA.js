@@ -131,16 +131,6 @@ export function _getQuestions () {
   })
 }
 
-export function getInitialData () {
-  return Promise.all([
-    _getUsers(),
-    _getQuestions(),
-  ]).then(([users, questions]) => ({
-    users,
-    questions,
-  }))
-}
-
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {
     id: generateUID(),

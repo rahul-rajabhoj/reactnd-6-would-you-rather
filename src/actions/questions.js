@@ -1,5 +1,5 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
-import { _saveQuestion as saveQuestion } from '../utils/_DATA'
+import { saveQuestion } from '../utils/api'
 import { addQuestionToUser } from './users'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -14,16 +14,17 @@ export function receiveQuestions(questions) {
 }
 
 export function handleAddQuestion(optionOneText, optionTwoText, author) {
-    return async (dispatch) => {
+    return async dispatch => {
         dispatch(showLoading())
-        return saveQuestion({optionOneText, optionTwoText, author}).then((question) => {
+        try {
+            const question = await saveQuestion({ optionOneText, optionTwoText, author })
             dispatch(addQuestion(question))
             dispatch(addQuestionToUser(question))
             dispatch(hideLoading())
-        }).catch( error => {
+        } catch (error) {
             console.error('Error in handleAddQuestion', error)
             dispatch(hideLoading())
-        })
+        }
     }
 } 
 
